@@ -19,6 +19,7 @@
 */
 @media only screen and (max-width: 640px) {
 
+    /* Makes sure that since the webpage on the phone is 100% width it will be spread out for each day and each day of the month */
     table,
     tbody,
     tr,
@@ -28,10 +29,12 @@
         display: block;
     }
 
+    /* It hides the labels of the week such as Monday, Tuesday, Wednesday, etc. */
     thead {
         display: none;
     }
 
+    /* This effects the caption of the calendar to have a text color of white with a background color of gray */
     caption {
         background: gray;
         color: white;
@@ -40,6 +43,7 @@
 
     }
 
+    /* This selector grabs all of the table cells giving them a border, padding and a color */
     td {
         border: 1px dotted gray;
         color: rgb(11, 12, 145);
@@ -48,16 +52,74 @@
         min-height: 40px;
     }
 
+    /* This effects the February dates to be a specific color and the to have borders  */
     tr:nth-of-type(odd) {
         background: rgb(255, 235, 178);
-        border: 2px solid gray
+        border: 2px solid gray;
     }
+
+    /* This keeps the table cells from collapsing into each other */
+    td::before {
+        content: attr(data-date);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40%;
+        padding: 5px;
+    }
+
 }
-
-
-
 
 /* =============================================
    Tablet and Desktop Styles: greater than 640px
    =============================================
 */
+
+@media only screen and (min-width: 641px) {
+
+    /* This table selection is used to give the table the perfect properties to apply a photo and other table styles to keep it as one whole element of the table */
+    table {
+        background: url(lht_photo1.png) no-repeat bottom right;
+        background-size: 40% 100%;
+        border: 6px double rgb(154, 64, 3);
+        border-collapse: collapse;
+        margin: 20px auto;
+        table-layout: fixed;
+        width: 85%;
+    }
+
+    /* This effects all of the cells of data and the headers of all of each of the table headers */
+    td,
+    th {
+        border: 1px solid gray;
+        font-size: 0.85em;
+        vertical-align: top;
+        padding: 5px;
+        word-wrap: break-word;
+        width: 14.28%;
+    }
+
+    /* This style effects only the table data cells with the months January and March */
+    td {
+        background: rgba(171, 171, 171, 0.6);
+        color: rgb(11, 12, 145);
+    }
+
+    /* Meanwhile these effect the dates of the month that are included in February */
+    td[data-date*="Feb"] {
+        background: rgba(232, 214, 148, 0.6);
+        box-shadow: gray inset 0px 0px 20px;
+    }
+
+    /* This selector of caption effects the caption telling the user it is the February calendar */
+    caption {
+        text-align: center;
+        font-size: 1.2em;
+        letter-spacing: 3px;
+    }
+
+    /* These styles effect the table headers inside of the table head */
+    thead th {
+        background: rgb(154, 64, 3);
+        color: white;
+    }

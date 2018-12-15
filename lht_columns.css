@@ -16,3 +16,15 @@
 
 
 /* Column Styles */
+
+/* Seprates the article selector into three sections and a line seperating each section */
+article {
+    column-width: 260px;
+    column-gap: 20px;
+    column-rule: 1px solid rgb(154, 64, 31);
+}
+
+/* Places header over all columns */
+article h1 {
+    column-span: all;
+}
